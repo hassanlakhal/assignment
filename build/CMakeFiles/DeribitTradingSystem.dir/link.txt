@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o -o DeribitTradingSystem  -llib/libcurl/lib/libcurl.a 
