@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <curl/curl.h>
-// #include <json/json.h>
+#include <json/json.h>
 #include <unistd.h>
 
 class DeribitClient{

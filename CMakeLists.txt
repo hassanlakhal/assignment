@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 # Include directories
 include_directories(include)
 include_directories(lib/libcurl/include)
+include_directories(lib/jsoncpp/include)
 
 # Find OpenSSL, Zlib, and libpsl
 find_package(OpenSSL REQUIRED)
@@ -22,10 +23,12 @@ set(SOURCES
 
 # Link directories
 link_directories(lib/libcurl/lib)
+link_directories(lib/jsoncpp/lib)
 
 # Libraries to link
 set(LIBRARIES
     libcurl.a
+    libjsoncpp.a
     OpenSSL::Crypto
     OpenSSL::SSL
     ZLIB::ZLIB
