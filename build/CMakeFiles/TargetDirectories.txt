@@ -1,3 +1,0 @@
-/home/hassan/Desktop/assignment/build/CMakeFiles/DeribitTradingSystem.dir
-/home/hassan/Desktop/assignment/build/CMakeFiles/edit_cache.dir
-/home/hassan/Desktop/assignment/build/CMakeFiles/rebuild_cache.dir
