@@ -108,6 +108,11 @@ DeribitTradingSystem_EXTERNAL_OBJECTS =
 DeribitTradingSystem: CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o
 DeribitTradingSystem: CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o
 DeribitTradingSystem: CMakeFiles/DeribitTradingSystem.dir/build.make
+DeribitTradingSystem: /usr/lib/x86_64-linux-gnu/libcrypto.so
+DeribitTradingSystem: /usr/lib/x86_64-linux-gnu/libssl.so
+DeribitTradingSystem: /usr/lib/x86_64-linux-gnu/libz.so
+DeribitTradingSystem: /usr/lib/x86_64-linux-gnu/libpsl.so
+DeribitTradingSystem: /usr/lib/x86_64-linux-gnu/libcrypto.so
 DeribitTradingSystem: CMakeFiles/DeribitTradingSystem.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hassan/Desktop/assignment/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable DeribitTradingSystem"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DeribitTradingSystem.dir/link.txt --verbose=$(VERBOSE)
