@@ -12,6 +12,7 @@ class DeribitClient{
         std::string access_token; 
         std::string sendRequest(const std::string& url, const std::string& method, const std::string& payload = "");
     public:
+        void authenticate();
         DeribitClient(std::string client_id, std::string url, std::string client_secret);
         static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp);
 
