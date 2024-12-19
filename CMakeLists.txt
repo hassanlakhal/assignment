@@ -7,15 +7,29 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 include_directories(lib/libcurl/include)
 
+# Find OpenSSL, Zlib, and libpsl
+find_package(OpenSSL REQUIRED)
+find_package(ZLIB REQUIRED)
+
+# Specify the path to libpsl if it's not in the default location
+find_library(LIBPSL psl REQUIRED)
+
 # Source files
 set(SOURCES
     src/main.cpp
     src/DeribitClient.cpp
 )
 
-# Link libraries
+# Link directories
+link_directories(lib/libcurl/lib)
+
+# Libraries to link
 set(LIBRARIES
-    lib/libcurl/lib/libcurl.a
+    libcurl.a
+    OpenSSL::Crypto
+    OpenSSL::SSL
+    ZLIB::ZLIB
+    ${LIBPSL}
 )
 
 # Target executable

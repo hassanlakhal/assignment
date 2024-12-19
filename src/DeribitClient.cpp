@@ -12,7 +12,7 @@ size_t DeribitClient::WriteCallback(void *contents, size_t size, size_t nmemb, v
 }
 
 
-std::string DeribitClient::sendRequest(const std::string& url, const std::string& method, const std::string& payload = ""){
+std::string DeribitClient::sendRequest(const std::string& url, const std::string& method, const std::string& payload){
     std::string response;
     CURL* curl;
     CURLcode res;

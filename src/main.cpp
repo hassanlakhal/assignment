@@ -6,6 +6,6 @@ int main(int arc, char** arv){
         write(2,"to myn args!!\n",15);
         return 2;
     }
-    DeribitClient clinet();
+    // DeribitClient clinet();
     return 0;
 }
