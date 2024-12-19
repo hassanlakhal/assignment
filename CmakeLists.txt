@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.10)
+project(DeribitTradingSystem)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# Include directories
+include_directories(include)
+include_directories(lib/libcurl/include)
+
+# Source files
+set(SOURCES
+    src/main.cpp
+    src/DeribitClient.cpp
+)
+
+# Link libraries
+set(LIBRARIES
+    lib/libcurl/lib/libcurl.a
+)
+
+# Target executable
+add_executable(DeribitTradingSystem ${SOURCES})
+target_link_libraries(DeribitTradingSystem ${LIBRARIES})
