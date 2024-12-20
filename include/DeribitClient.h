@@ -3,6 +3,8 @@
 #include <curl/curl.h>
 #include <json/json.h>
 #include <unistd.h>
+#include <iostream>
+#include <sstream>
 
 class DeribitClient{
     private:
@@ -10,7 +12,7 @@ class DeribitClient{
         std::string url;
         std::string client_secret;
         std::string access_token; 
-        std::string sendRequest(const std::string& url, const std::string& method, const std::string& payload = "");
+        std::string sendRequest(std::string& url, const std::string& method, std::string& payload);
     public:
         void authenticate();
         DeribitClient(std::string client_id, std::string url, std::string client_secret);

@@ -13,7 +13,7 @@ size_t DeribitClient::WriteCallback(void *contents, size_t size, size_t nmemb, v
 }
 
 
-std::string DeribitClient::sendRequest(const std::string& url, const std::string& method, const std::string& payload){
+std::string DeribitClient::sendRequest(std::string& url, const std::string& method, std::string& payload){
     std::string response;
     CURL* curl;
     CURLcode res;
@@ -21,60 +21,82 @@ std::string DeribitClient::sendRequest(const std::string& url, const std::string
     curl_global_init(CURL_GLOBAL_DEFAULT);
     curl = curl_easy_init();
     if (curl) {
-            struct curl_slist* headers = NULL;
-            curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+        std::cout << "urls " << payload << std::endl;
+        curl_easy_setopt(curl, CURLOPT_URL, payload.c_str());
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 
-            if (method == "POST") {
-                std::cout << "payload  " << payload << std::endl;
-                curl_easy_setopt(curl, CURLOPT_POST, 1L);
-                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, payload.c_str());
-                headers = curl_slist_append(headers, "Content-Type: application/json");
-            }
-
-            if (!access_token.empty()) {
-                std::string auth_header = "Authorization: Bearer " + access_token;
-                headers = curl_slist_append(headers, auth_header.c_str());
-            }
-
-            curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-            curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-            std::cout << "headers " << "{"<< response << "}" << std::endl;
-
-            res = curl_easy_perform(curl);
-            if (res != CURLE_OK) {
-                std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
-            }
-
-            curl_easy_cleanup(curl);
-            if (headers) curl_slist_free_all(headers);
+        res = curl_easy_perform(curl);
+        if (res != CURLE_OK) {
+            std::cerr << "CURL request failed: " << curl_easy_strerror(res) << std::endl;
         }
+        curl_easy_cleanup(curl);
+    }
+    curl_global_cleanup();
     return response;
 
 }
 
 void DeribitClient::authenticate() {
+    // Construct the base URL
     std::string url_base = url + "public/auth";
+
+    // Create JSON payload
     Json::Value data;
     data["grant_type"] = "client_credentials";
     data["client_id"] = client_id;
     data["client_secret"] = client_secret;
+
+    // Convert JSON payload to string
     Json::StreamWriterBuilder writer;
     std::string payload = Json::writeString(writer, data);
-    std::cout << "payload " << payload << std::endl;
-    std::string response = sendRequest(url_base, "POST", payload);
-    std::cout << "response " << response << std::endl;
-    Json::CharReaderBuilder reader;
+
+    // Build the URL with query parameters
+    Json::CharReaderBuilder readerBuilder;
+    Json::Value root;
+    std::string errors;
+
+    // Use a stream for parsing JSON
+    std::istringstream jsonStream(payload);
+    if (!Json::parseFromStream(readerBuilder, jsonStream, &root, &errors)) {
+        std::cerr << "Failed to parse JSON: " << errors << std::endl;
+        return;
+    }
+
+    // Construct the URL endpoint with query parameters
+    std::ostringstream urlEndpoint;
+    urlEndpoint << url_base << "?";
+
+    for (const auto& key : root.getMemberNames()) {
+        urlEndpoint << key << "=" << root[key].asString() << "&";
+    }
+
+    // Remove trailing '&' from the URL
+    std::string endpoint = urlEndpoint.str();
+    if (!endpoint.empty() && endpoint.back() == '&') {
+        endpoint.pop_back();
+    }
+
+    // Print the payload and endpoint
+    std::cout << "Payload: " << payload << std::endl;
+    std::cout << "Endpoint: " << endpoint << std::endl;
+
+    // Send request
+    std::string response = sendRequest(url_base, "GET", endpoint);
+    std::cout << "Response: " << response << std::endl;
+
+    // Parse the response
+    Json::CharReaderBuilder responseReader;
     Json::Value jsonResponse;
-    std::string errs;
-    std::istringstream stream(response);
-    if (Json::parseFromStream(reader, stream, &jsonResponse, &errs)) {
+    std::istringstream responseStream(response);
+    if (Json::parseFromStream(responseReader, responseStream, &jsonResponse, &errors)) {
         if (jsonResponse["result"].isMember("access_token")) {
             access_token = jsonResponse["result"]["access_token"].asString();
+            std::cout << "login " <<  access_token << std::endl;
         } else {
             throw std::runtime_error("Authentication failed: " + response);
         }
     } else {
-        throw std::runtime_error("Failed to parse authentication response: " + errs);
+        throw std::runtime_error("Failed to parse authentication response: " + errors);
     }
 }

@@ -8,7 +8,7 @@ int main(int arc, char** arv){
     // }
     try
     {
-        std::string client_sec = "nH2e4jvj7yYBKRUgy2CWBnzk7r-aq92fWORwZcc31y4";
+        std::string client_sec = "rS_Cs1nX9NSQS8n4u4z3yWfvBX5d84yP3QU76SoVYb0";
         std::string client_id = "BaGiJcZX";
         std::string url = "https://test.deribit.com/api/v2/";
         DeribitClient clinet(client_id,url,client_sec);
