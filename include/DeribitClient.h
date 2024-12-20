@@ -17,5 +17,10 @@ class DeribitClient{
         void authenticate();
         DeribitClient(std::string client_id, std::string url, std::string client_secret);
         static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp);
+        bool placeOrder(const std::string& instrument, double price, double quantity, const std::string& orderType);
+        bool cancelOrder(const std::string& order_id); 
+        bool modifyOrder(const std::string& orderId, double newPrice, double newQuantity);
+        bool getOrderbook(int depth, const std::string& instrument_name);
+
 
 };

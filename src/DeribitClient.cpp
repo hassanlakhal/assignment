@@ -100,3 +100,24 @@ void DeribitClient::authenticate() {
         throw std::runtime_error("Failed to parse authentication response: " + errors);
     }
 }
+
+ bool DeribitClient::placeOrder(const std::string& instrument, double price, double quantity, const std::string& orderType) {
+    return false;
+ }
+
+
+bool DeribitClient::cancelOrder(const std::string& order_id){
+
+
+    return false;
+    
+}
+
+
+bool DeribitClient::modifyOrder(const std::string& orderId, double newPrice, double newQuantity) {
+    return false;
+}
+
+bool DeribitClient::getOrderbook(int depth, const std::string& instrument_name){
+    return false;
+} 
