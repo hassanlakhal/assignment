@@ -1,4 +1,4 @@
-#include "../include/DeribitClient.h"
+#include "../include/DeribitClient.hpp"
 
 DeribitClient::DeribitClient(std::string client_id, std::string url, std::string client_secret)
 : url(url), client_id(client_id), client_secret(client_secret) {

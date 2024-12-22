@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DeribitTradingSystem.dir/link.d"
   "CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o"
   "CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o.d"
+  "CMakeFiles/DeribitTradingSystem.dir/src/DeribitWebSocketClient.cpp.o"
+  "CMakeFiles/DeribitTradingSystem.dir/src/DeribitWebSocketClient.cpp.o.d"
+  "CMakeFiles/DeribitTradingSystem.dir/src/WebSocketServer.cpp.o"
+  "CMakeFiles/DeribitTradingSystem.dir/src/WebSocketServer.cpp.o.d"
   "CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o"
   "CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o.d"
   "DeribitTradingSystem"

@@ -7,7 +7,8 @@
                 "/usr/include",
                 "/usr/include/jsoncpp",
                 "/usr/include/c++/11",
-                "/usr/include/x86_64-linux-gnu/c++/11"
+                "/usr/include/x86_64-linux-gnu/c++/11",
+                "${workspaceFolder}/lib/websocketpp/include"
             ],
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",

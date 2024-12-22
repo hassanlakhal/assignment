@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/hassan/Desktop/assignment/build",
+  "command": "/usr/bin/g++  -I/home/hassan/Desktop/assignment/include -I/home/hassan/Desktop/assignment/lib/libcurl/include -I/home/hassan/Desktop/assignment/lib/jsoncpp/include -I/home/hassan/Desktop/assignment/lib/websocketpp/include -g -o CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o -c /home/hassan/Desktop/assignment/src/main.cpp",
+  "file": "/home/hassan/Desktop/assignment/src/main.cpp"
+},
+{
+  "directory": "/home/hassan/Desktop/assignment/build",
+  "command": "/usr/bin/g++  -I/home/hassan/Desktop/assignment/include -I/home/hassan/Desktop/assignment/lib/libcurl/include -I/home/hassan/Desktop/assignment/lib/jsoncpp/include -I/home/hassan/Desktop/assignment/lib/websocketpp/include -g -o CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o -c /home/hassan/Desktop/assignment/src/DeribitClient.cpp",
+  "file": "/home/hassan/Desktop/assignment/src/DeribitClient.cpp"
+},
+{
+  "directory": "/home/hassan/Desktop/assignment/build",
+  "command": "/usr/bin/g++  -I/home/hassan/Desktop/assignment/include -I/home/hassan/Desktop/assignment/lib/libcurl/include -I/home/hassan/Desktop/assignment/lib/jsoncpp/include -I/home/hassan/Desktop/assignment/lib/websocketpp/include -g -o CMakeFiles/DeribitTradingSystem.dir/src/WebSocketServer.cpp.o -c /home/hassan/Desktop/assignment/src/WebSocketServer.cpp",
+  "file": "/home/hassan/Desktop/assignment/src/WebSocketServer.cpp"
+},
+{
+  "directory": "/home/hassan/Desktop/assignment/build",
+  "command": "/usr/bin/g++  -I/home/hassan/Desktop/assignment/include -I/home/hassan/Desktop/assignment/lib/libcurl/include -I/home/hassan/Desktop/assignment/lib/jsoncpp/include -I/home/hassan/Desktop/assignment/lib/websocketpp/include -g -o CMakeFiles/DeribitTradingSystem.dir/src/DeribitWebSocketClient.cpp.o -c /home/hassan/Desktop/assignment/src/DeribitWebSocketClient.cpp",
+  "file": "/home/hassan/Desktop/assignment/src/DeribitWebSocketClient.cpp"
+}
+]

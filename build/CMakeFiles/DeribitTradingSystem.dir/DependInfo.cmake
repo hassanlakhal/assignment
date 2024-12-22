@@ -8,17 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/hlakhal-/assignment/src/DeribitClient.cpp" "CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o" "gcc" "CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o.d"
-  "/home/hlakhal-/assignment/src/main.cpp" "CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o" "gcc" "CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o.d"
-  "" "DeribitTradingSystem" "gcc" "CMakeFiles/DeribitTradingSystem.dir/link.d"
+  "/home/hassan/Desktop/assignment/src/DeribitClient.cpp" "CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o" "gcc" "CMakeFiles/DeribitTradingSystem.dir/src/DeribitClient.cpp.o.d"
+  "/home/hassan/Desktop/assignment/src/DeribitWebSocketClient.cpp" "CMakeFiles/DeribitTradingSystem.dir/src/DeribitWebSocketClient.cpp.o" "gcc" "CMakeFiles/DeribitTradingSystem.dir/src/DeribitWebSocketClient.cpp.o.d"
+  "/home/hassan/Desktop/assignment/src/WebSocketServer.cpp" "CMakeFiles/DeribitTradingSystem.dir/src/WebSocketServer.cpp.o" "gcc" "CMakeFiles/DeribitTradingSystem.dir/src/WebSocketServer.cpp.o.d"
+  "/home/hassan/Desktop/assignment/src/main.cpp" "CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o" "gcc" "CMakeFiles/DeribitTradingSystem.dir/src/main.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
-  )
-
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

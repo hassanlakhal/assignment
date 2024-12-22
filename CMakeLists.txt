@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 include_directories(lib/libcurl/include)
 include_directories(lib/jsoncpp/include)
+include_directories(lib/websocketpp/include)
 
 # Find OpenSSL, Zlib, and libpsl
 find_package(OpenSSL REQUIRED)
@@ -19,6 +20,8 @@ find_library(LIBPSL psl REQUIRED)
 set(SOURCES
     src/main.cpp
     src/DeribitClient.cpp
+    src/WebSocketServer.cpp
+    src/DeribitWebSocketClient.cpp
 )
 
 # Link directories
